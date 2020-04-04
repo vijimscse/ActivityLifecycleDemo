@@ -1,14 +1,13 @@
 package com.learn.activitylifecycledemo
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.appcompat.app.AppCompatActivity
+
 
 class MainActivity : AppCompatActivity() {
     companion object {
-        const val TAG = "Main"
+        const val TAG = "Lifecycle Activity Main"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,11 +16,12 @@ class MainActivity : AppCompatActivity() {
 
         Log.d(TAG, "on Create")
 
-        start_second_activity.setOnClickListener {
-            startActivity(Intent(this, SecondActivity::class.java))
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, MainFragment.newInstance("", "")).commit()
         }
         //Calling finish(), directly calls onDestroy()
-      //  finish()
+        //  finish()
     }
 
     override fun onStart() {
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
 
-        Log.d(TAG,  "on pause")
+        Log.d(TAG, "on pause")
     }
 
     override fun onStop() {

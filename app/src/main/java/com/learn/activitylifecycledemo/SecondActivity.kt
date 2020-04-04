@@ -7,7 +7,7 @@ import android.util.Log
 class SecondActivity : AppCompatActivity() {
 
     companion object {
-        const val TAG = "Second"
+        const val TAG = "Lifecycle Second"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
