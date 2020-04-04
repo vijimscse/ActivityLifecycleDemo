@@ -1,62 +1,55 @@
 package com.learn.activitylifecycledemo
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class SecondActivity : AppCompatActivity() {
+
     companion object {
-        const val TAG = "Main"
+        const val TAG = "Second"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_second)
 
-        Log.d(TAG, "on Create")
-
-        start_second_activity.setOnClickListener {
-            startActivity(Intent(this, SecondActivity::class.java))
-        }
-        //Calling finish(), directly calls onDestroy()
-      //  finish()
+        Log.d(TAG, "Create")
     }
 
     override fun onStart() {
         super.onStart()
 
-        Log.d(TAG, "onStart")
+        Log.d(TAG, "Start")
     }
 
     override fun onResume() {
         super.onResume()
 
-        Log.d(TAG, "onResume")
+        Log.d(TAG, "Resume")
     }
 
     override fun onPause() {
         super.onPause()
 
-        Log.d(TAG,  "on pause")
+        Log.d(TAG,  "Pause")
     }
 
     override fun onStop() {
         super.onStop()
 
-        Log.d(TAG, "on Stop")
+        Log.d(TAG, "Stop")
     }
 
     override fun onRestart() {
         super.onRestart()
 
-        Log.d(TAG, "on restart")
+        Log.d(TAG, "Restart")
     }
 
     override fun onDestroy() {
         super.onDestroy()
 
-        Log.d(TAG, "on destroy")
+        Log.d(TAG, "Destroy")
     }
 }
